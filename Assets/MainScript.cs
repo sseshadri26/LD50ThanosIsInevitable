@@ -5,6 +5,26 @@ using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine;
+using UnityEditor;
+
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
+using System.Collections;
+using System.Collections.Generic;
+//Use dialogboxes
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
+using System.Collections;
+using System.Threading.Tasks;
+
 
 public class MainScript : MonoBehaviour
 {
@@ -15,8 +35,8 @@ public class MainScript : MonoBehaviour
     public GameObject panel2;
     public Text time;
 
-    [SerializeField]
-    static float timer = 10;
+
+    static float timer = 599;
 
     void Start()
     {
@@ -54,15 +74,47 @@ public class MainScript : MonoBehaviour
         timer = 0;
     }
 
-    static void Quit()
-    {
-        timer = 0;
-    }
 
     [RuntimeInitializeOnLoadMethod]
     static void RunOnStart()
     {
-        Application.quitting += Quit;
+        Application.wantsToQuit += WantsToQuit;
+    }
+
+    public static bool quitConfirmation = false;
+
+    static bool WantsToQuit()
+    {
+        timer = 0;
+        Debug.Log(Application.isEditor);
+        if (Application.isEditor)
+        {
+            // Will get called only when playing in Editor mode
+            Application.Quit();
+            return true;
+        }
+        else if (quitConfirmation)
+        {
+            return true;
+        }
+        else
+        {
+            RequestQuitConfirmation();
+        }
+        return false;
+    }
+
+    static void RequestQuitConfirmation()
+    {
+
+        //bool result = EditorUtility.DisplayDialog("Thanos just won you clown.",
+        //"Thanos just won you clown. Want to exit now?", "Yes", "No");
+
+        //if (result)
+        //{
+        //    quitConfirmation = true;
+        //    Application.Quit();
+        //}
     }
 
 }
