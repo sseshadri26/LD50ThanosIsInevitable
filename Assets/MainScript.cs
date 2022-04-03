@@ -16,7 +16,7 @@ public class MainScript : MonoBehaviour
     public Text time;
 
     [SerializeField]
-    float timer = 10;
+    static float timer = 10;
 
     void Start()
     {
@@ -53,4 +53,16 @@ public class MainScript : MonoBehaviour
     {
         timer = 0;
     }
+
+    static void Quit()
+    {
+        timer = 0;
+    }
+
+    [RuntimeInitializeOnLoadMethod]
+    static void RunOnStart()
+    {
+        Application.quitting += Quit;
+    }
+
 }
