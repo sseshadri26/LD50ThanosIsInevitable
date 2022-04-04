@@ -35,6 +35,9 @@ public class MainScript : MonoBehaviour
     public GameObject panel2;
     public Text time;
 
+    public thanospoints thanosPoints;
+    public Text endText;
+
 
     static float timer = 599;
 
@@ -63,6 +66,7 @@ public class MainScript : MonoBehaviour
         if (timer < 0)
         {
             panel1.SetActive(false);
+            endText.text = "HAHAHAHA YOU DIED AND ONLY GOT " + thanosPoints.thanosPoints + " THANOSPOINTS™️! \n*DEFAULT DANCES*";
             panel2.SetActive(true);
         }
 

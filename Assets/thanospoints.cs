@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class thanospoints : MonoBehaviour
 {
-    int thanosPoints;
+    public int thanosPoints;
     [SerializeField] public Text thanosPointsText;
     // Start is called before the first frame update
     void Start()
