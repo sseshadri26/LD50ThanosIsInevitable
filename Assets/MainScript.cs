@@ -2,27 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine;
-using System.Collections;
 using System;
-using UnityEngine;
+
 using UnityEditor;
 
-using System;
-using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
-using System.Collections;
-using System.Collections.Generic;
+
 //Use dialogboxes
-using UnityEngine.UI;
+
 using UnityEngine.EventSystems;
 
-using System;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Events;
-using System.Collections;
 using System.Threading.Tasks;
 
 
